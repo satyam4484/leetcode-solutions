@@ -12,7 +12,7 @@ public:
                 if(sum + nums[j]+nums[k] == 0) {
                     ans.push_back({nums[i],nums[j],nums[k]});
                     low=true,high =true;
-                }else if(sum + nums[i] + nums[k] < 0) {
+                }else if(sum + nums[j] + nums[k] < 0) {
                     low = true;
                 }else{
                     high = true;
