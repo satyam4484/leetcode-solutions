@@ -1,26 +1,23 @@
 class Solution {
 public:
-    string convert(string s, int numRows) {
-        vector<string>ans(numRows,"");
-        bool dir = true;
-        if(numRows <=1 ) return s;
-        int row = 0;
-
-        for(int i = 0 ; i < s.size() ; i++ ) {
-          ans[row].push_back(s[i]);
-          if(row == 0) {
-            dir = true;
-          } else if(row == numRows-1) {
-            dir = false;
-          }
-
-          (dir) ? row++ : row--;
+    string convert(string s, int n) {
+        vector<vector<char>>ch(n);
+        int l=0,i=0,flag=0;
+        if(n == 1) return s;
+        while(l<s.size()) {
+            while(1) {
+                ch[i].push_back(s[l]);
+                l++;
+                if(l >= s.size()) break;
+                flag == 0?i++:i--;
+                if(i%(n-1) == 0) flag = (flag == 1 ? 0:1);
+            }
+            // break;
         }
-
-        string S="";
-        for(auto i:ans) {
-          S+=i;
+        string ans;
+        for(i=0;i<n;i++) {
+            ans+=string(ch[i].begin(),ch[i].end());
         }
-        return S;
+        return ans;
     }
 };
