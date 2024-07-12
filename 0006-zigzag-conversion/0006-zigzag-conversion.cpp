@@ -1,7 +1,7 @@
 class Solution {
 public:
     string convert(string s, int n) {
-        vector<vector<char>>ch(n);
+        vector<string>ch(n,"");
         int l=0,i=0,flag=0;
         if(n == 1) return s;
         
