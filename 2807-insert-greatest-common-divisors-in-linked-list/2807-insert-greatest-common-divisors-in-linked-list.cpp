@@ -16,23 +16,23 @@ public:
         ListNode*temp = head;
         while(temp) {
             if(temp->next) {
-                int curr = temp->val;
-                temp = temp->next;
-                int val = __gcd(curr,temp->val);
-                gcds.push_back(val);
+                ListNode*curr = temp->next;
+                int currval = temp->val;
+                int val = __gcd(currval,temp->next->val);
+                ListNode*newnode = new ListNode(val);
+                newnode->next = curr;
+                temp->next = newnode;
+                temp = curr;
             }else{
                 break;
             }
         }
-        temp = head;
-        int i=0;
-        while(i<gcds.size()) {
-            ListNode*curr = temp->next;
-            ListNode*newnode = new ListNode(gcds[i++]);
-            newnode->next = curr;
-            temp->next = newnode;
-            temp = curr;
-        }
+        // temp = head;
+        // int i=0;
+        // while(i<gcds.size()) {
+            
+            
+        // }
         
         return head;
     }
