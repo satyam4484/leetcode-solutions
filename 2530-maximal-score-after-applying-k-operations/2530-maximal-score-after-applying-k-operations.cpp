@@ -9,6 +9,11 @@ public:
         while(k--) {
             int val = pq.top();
             pq.pop();
+            if(val == 1) {
+                cout<<"k--"<<k<<" "<<ans<<endl;
+                ans+=1LL*(k);
+                break;
+            }
             ans +=1LL*val;
             pq.push(ceil((double)val / 3));
         }
