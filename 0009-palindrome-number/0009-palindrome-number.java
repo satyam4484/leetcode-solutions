@@ -3,12 +3,14 @@ class Solution {
         if(x < 0 ) return false;
         // approach could b we can convert to string and then check reversed approach.
         // will cause some string space building.
-        int newValue = 0;
-        int preValue = x;
-        while(x>0) {
-            newValue = newValue*10 + x%10;
-            x = x/10;
+        String str = String.valueOf(x);
+        int size = str.length();
+
+        for (int i = 0; i < size / 2; i++) {
+            if (str.charAt(i) != str.charAt(size - i - 1)) {
+                return false;
+            }
         }
-        return newValue == preValue;
+        return true;
     }
 }
