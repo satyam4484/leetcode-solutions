@@ -1,18 +1,19 @@
 class Solution {
 public:
-    vector<vector<int>> generate(int n) {
-        if(n == 1) return {{1}};
-        else if (n ==2) return {{1},{1,1}};
-        vector<vector<int>>v{{1},{1,1}};
-        for(int i=2;i<n;i++) {
-            vector<int>curr(i+1);
-            curr[0] = 1;
-            for(int j=1;j<i;j++) {
-                curr[j] = v[i-1][j] + v[i-1][j-1];
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>>ans;
+        for(int i=0;i<numRows;i++) {
+            vector<int>curr;
+            for(int j=0;j<i+1;j++) {
+                if(j ==0 or j == i) {
+                    curr.push_back(1);
+                }else{
+                    int val = ans[i-1][j] + ans[i-1][j-1];
+                    curr.push_back(val);
+                }
             }
-            curr[i] = 1;
-            v.push_back(curr);
+            ans.push_back(curr);
         }
-        return v;
+        return ans;
     }
 };
