@@ -4,7 +4,7 @@ public:
         int count = 0;
         int maxAns = 0;
         for(auto ch: s) {
-            if(count < 0) count = 0;
+            // if(count < 0) count = 0;
             maxAns = max(maxAns,count);
             if(ch == '(') count++;
             else if(ch==')') count--;
