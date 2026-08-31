@@ -10,20 +10,15 @@
  */
 class Solution {
 public:
+    ListNode* reverseLinkedList(ListNode*prev, ListNode*curr) {
+        if(curr == nullptr) return prev;
+        ListNode*list = reverseLinkedList(curr, curr->next);
+        curr->next = prev;
+        return list;
+    }
     ListNode* reverseList(ListNode* head) {
-
-        ListNode* prev = nullptr;
-        ListNode* curr = head;
-
-        while (curr != nullptr) {
-            ListNode* next = curr->next;
-
-            curr->next = prev;
-
-            prev = curr;
-            curr = next;
-        }
-
-        return prev;
+        ListNode*list = reverseLinkedList(nullptr,head);
+        return list;
+        
     }
 };
